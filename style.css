@@ -815,7 +815,7 @@ footer {
 
     /* --- LA X PERFETTA --- */
     .hamburger-btn.attivo span:nth-child(1) {
-        transform: translate(4px, -1px) rotate(45deg) !important;
+        transform: translate(4px, -2px) rotate(45deg) !important;
         background-color: #DB862B !important; 
     }
 
