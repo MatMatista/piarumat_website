@@ -960,6 +960,7 @@ footer {
         width: 80% !important;        /* Diventa un bel bottone grande e centrale */
         max-width: 250px !important;
         padding: 14px 20px !important; /* Più comodo da premere con il pollice */
+        border-radius: 45px !important; /* Mantiene la forma a pillola */
     }
     /* --- SEZIONE HYPERMC MOBILE --- */
     #progetto-principale {
