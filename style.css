@@ -1,0 +1,1149 @@
+/* METTI QUESTO IN CIMA A TUTTO IL FILE style.css */
+#video-sfondo {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+    z-index: -9999 !important;
+    pointer-events: none !important;
+    /* ... le altre regole che abbiamo già messo ... */
+    
+    image-rendering: -webkit-optimize-contrast; /* Ottimizza la nitidezza su Chrome/Safari */
+    image-rendering: crisp-edges;               /* Ottimizza su Firefox */
+    transform: translateZ(0);                   /* Forza l'uso della scheda video (hardware acceleration) */
+}
+/* RESET GENERALE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* MODIFICA IL BODY */
+body {
+    margin: 0;
+    font-family: 'Lexend', sans-serif;
+    background-color: #2b2b2b; /* Colore di riserva */
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 20px;
+    
+    /* Questo assicura che il body faccia da base corretta */
+    position: relative; 
+    width: 100%;
+    min-height: 100vh; /* Prende tutta l'altezza dello schermo */
+    overflow-x: hidden; /* Evita fastidiosi scroll orizzontali */
+}
+
+/* MODIFICA L'HEADER */
+header {
+    background-color: #DB862B;
+    display: table; 
+    width: 100%;
+    max-width: 1500px; /* 1. IMPOSTA UNA LARGHEZZA MAGGIORE PER L'HEADER (es. 1500px) */
+    margin: 0 auto 30px auto; /* 2. Lo centra nella pagina e lo stacca da sotto */
+    padding: 10px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 60px; /* Stacca l'header dal resto del contenuto */
+    /* AGGIUNGIAMO SOLO QUESTO PER CATTURARE LA BARRA IN SCROLL */
+    position: sticky !important;
+    top: 10px;                  /* Distanza dal bordo superiore quando si scrolla */
+    z-index: 99999 !important;  /* Passa sopra ai contenuti durante lo scroll */
+}
+
+/* NUOVA REGOLA PER IL CONTENUTO SOTTOSTANTE */
+.sito-centrato {
+    max-width: 1250px; /* 3. IL RESTO DEL SITO RIMANE PIÙ STRETTO (es. 1250px o 1300px) */
+    margin: 0 auto;    /* Lo centra perfettamente */
+    width: 100%;
+}
+
+.logo-container {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+
+/* Stile dell'icona del logo nella barra */
+.site-logo {
+    height: 40px; 
+    vertical-align: middle;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+.site-title {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #ffffff;
+    vertical-align: middle;
+}
+
+header nav {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right; /* Spinge il menu a destra */
+    width: 50%;
+}
+
+header nav ul { 
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+/* I link del menu sopra l'arancione diventano scuri o bianchi */
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Il grigio scuro del tuo logo */
+    font-weight: bold;
+    font-size: 14pt;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.3s; /* Rende l'effetto di passaggio più morbido */
+}
+
+/* Quando passi sopra ai link del menu, lo sfondo diventa bianco */
+header nav ul li a:hover {
+    background-color: #ffffff;
+    color: #DB862B;
+    text-decoration: none;
+}
+/* ---HERO SECTION--- */
+.hero {
+    width: 100%;
+    padding: 80px 0; /* Spazio sopra e sotto la sezione */
+    display: flex;
+    justify-content: center;
+}
+
+.hero-container {
+    max-width: 1100px; /* Allineato alla larghezza del resto del sito */
+    width: 90%;
+    display: flex;
+    align-items: center; /* Centra verticalmente testo e immagine */
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 60px; /* Stacca la sezione hero dal resto del contenuto */
+}
+
+.hero-text {
+    flex: 1; /* Prende metà dello spazio */
+}
+
+.hero-text h1 {
+    font-size: 4rem; /* Titolo molto grande */
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    opacity: 0; /* Nasconde l'elemento all'inizio */
+    animation: fadeInSlideRight 1s ease-out forwards; /* Nome animazione, durata, tipo di scorrimento, mantiene la posizione finale */
+    animation-delay: 0.2s; /* Ritardo per far apparire dopo il titolo */
+}
+
+.hero-text h1 span {
+    color: #DB862B; /* Il tuo arancione */
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    color: #cccccc;
+    line-height: 1.6;
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeInSlideRight 1s ease-out forwards;
+    animation-delay: 0.4s; /* Ritardo maggiore */
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInSlideLeft 1s ease-out forwards;
+    animation-delay: 0.6s; /* La skin appare per ultima per catturare l'attenzione */
+}
+
+.hero-image img {
+    max-width: 550px; /* Regola la grandezza della skin */
+    height: auto;
+    /* Effetto "ombra luminosa" arancione dietro la skin per modernità */
+    filter: drop-shadow(0 0 30px rgba(219, 134, 43, 0.2));
+    padding-left: 100px;
+}
+
+/* ─── STRUTTURA DELLE COLONNE (EX TABELLA) ─── */
+.colonne-container {
+    display: flex;
+    justify-content: space-between; /* Spinge i due elementi ai lati opposti */
+    gap: 30px; /* Crea lo spazio perfetto in mezzo senza rompere i bordi esterni */
+    width: 100%;
+    margin-bottom: 40px;
+    animation: rimpicciolisci 0.8s ease-out forwards;
+}
+
+/* I titoli delle sezioni riprendono l'arancione */
+h3, h2 {
+    font-size: 17pt;
+    color: #DB862B;
+    margin-bottom: 15px;
+}
+
+#bio {
+    font-size: 14pt;
+    background-color: #3a3a3a; 
+    padding: 25px;
+    padding-top: 40px;
+    border-radius: 12px;
+    flex: 1; /* Dice alla bio di prendersi tutto lo spazio che le Skills lasciano libero */
+    border-color: #DB862B;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#skills {
+    font-size: 14pt;
+    background-color: #3a3a3a; 
+    padding: 25px;
+    padding-top: 40px;
+    border-radius: 12px;
+    padding-bottom: 50px;
+    border-color: #DB862B;
+    border-width: 1px;
+    border-style: solid;
+    /* TRUCCO PER L'ESPANSIONE VERSO SINISTRA: */
+    flex-shrink: 0; /* Impedisce al box di rimpicciolirsi sotto la dimensione del suo testo */
+    width: auto;    /* Si adatta in automatico al contenuto */
+}
+
+#skills ul {
+    padding-left: 20px;
+}
+
+#skills ul li {
+    margin-bottom: 8px;
+}
+/* CONTAINER DELLA SEZIONE (Racchiude titolo + pillole) */
+.sezione-passioni {
+    text-align: center;      /* Centra perfettamente sia il titolo che le pillole */
+    margin-bottom: 50px;     /* Spazio generoso per staccarsi dal blocco HyperMC sotto */
+    margin-top: 100px;          /* Stacca la sezione passione dalle colonne sopra */
+}
+
+.sezione-passioni h2 {
+    font-size: 20pt;         /* Dimensione d'impatto ma non esagerata */
+    color: #DB862B;          /* L'arancione del tuo brand */
+    margin-bottom: 25px;     /* Crea il giusto spazio tra il titolo e le pillole sotto */
+    font-weight: 600;        /* Bello nitido grazie al font Lexend */
+    letter-spacing: 0.5px;   /* Un pizzico di spazio tra le lettere per un look più moderno */
+}
+
+/* CONTAINER DELLE PILLOLE (Modificato solo per il display) */
+.passioni-container {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;        
+    gap: 20px;              
+}
+/* CONTAINER DELLE PASSIONI */
+.passioni-container {
+    display: flex;
+    justify-content: center; /* Centra le pillole nella pagina */
+    flex-wrap: wrap;        /* Se lo schermo è piccolo, le pillole vanno a capo da sole */
+    gap: 15px;              /* Spazio tra una pillola e l'altra */
+    margin-bottom: 100px;    /* Stacca le pillole dal box di HyperMC sotto */
+    padding: 10px 0;
+}
+
+/* STILE DELLA SINGOLA PILLOLA */
+.pillola {
+    font-size: 16pt;
+    background-color: #3a3a3a; /* Grigio come gli altri box per coerenza */
+    color: #ffffff;
+    padding: 16px 24px;
+    border-radius: 40px;       /* Effetto pillola arrotondata */
+    font-size: 11pt;
+    font-weight: 500;
+    border: 1px solid #DB862B; /* Un sottile bordino arancione per richiamare il tema */
+    display: flex;
+    align-items: center;
+    gap: 8px;                  /* Spazio tra l'icona e il testo */
+    transition: 0.3s;
+    opacity: 0; /* Partono invisibili e l'animazione le rende visibili */
+    animation: apparizioneFluida 0.5s ease-out forwards;
+}
+
+/* Ritardi (Delay) per farle apparire in fila indiana */
+.pillola:nth-child(1) { animation-delay: 0.2s; }
+.pillola:nth-child(2) { animation-delay: 0.4s; }
+.pillola:nth-child(3) { animation-delay: 0.6s; }
+.pillola:nth-child(4) { animation-delay: 0.8s; }
+.pillola:nth-child(5) { animation-delay: 1.0s; }
+
+/* Effetto quando passi il mouse sopra una pillola */
+.pillola:hover {
+    background-color: #DB862B; /* Diventa arancione */
+    color: #ffffff;
+    transform: translateY(-2px); /* Si solleva leggermente */
+    box-shadow: 0 4px 10px rgba(219, 134, 43, 0.3);
+}
+/* --- SEZIONE CONTATTAMI HOME --- */
+.contattami-home {
+    width: 100%;
+    background-color: #3a3a3a;
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 14pt;
+    text-align: left;
+    margin-bottom: 70px;
+    border-color: #DB862B;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0;
+    animation: apparizioneFluida 1s ease-out forwards;
+    animation-delay: 1.2s; /* Parte dopo che le pillole hanno finito */
+}
+.riga-consigli {
+    display: flex;
+    align-items: center;  /* Centra verticalmente il titolo e il paragrafo tra loro */
+    gap: 40px;            /* Crea lo spazio preciso in mezzo tra il titolo e il testo */
+    width: 100%;
+}
+
+.riga-consigli h2 {
+    padding-left: 20px;   /* Mantiene lo spostamento verso destra del solo titolo che volevi prima */
+    flex-shrink: 0;       /* Impedisce al titolo di stringersi se il paragrafo è lungo */
+}
+
+.testo-destra {
+    flex: 1;
+    display: flex;
+    justify-content: space-between; /* Spinge il testo a sinistra e il bottone a destra */
+    align-items: center;            /* Li tiene allineati dritti sulla stessa linea */
+    gap: 20px;
+}
+.bottone-consigli {
+    margin-top: 15px;
+    display: inline-block;
+    background-color: #DB862B;
+    color: #ffffff;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 25px; /* Bottone a pillola arrotondato */
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-decoration: none;
+    align-items: center;
+    transition: 0.3s;
+}
+.bottone-consigli:hover {
+    background-color: #ffffff;
+    color: #DB862B;
+    text-decoration: none;
+}
+
+/* BOX HYPERMC GENERALE */
+#progetto-principale {
+    width: 100%;        
+    text-align: left;
+    padding: 30px;
+    padding-top: 40px;
+    background-color: #3a3a3a;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border-color: #DB862B;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0;
+    animation: apparizioneFluida 1s ease-out forwards;
+    animation-delay: 1.2s; /* Parte dopo che le pillole hanno finito */
+}
+
+/* CONTENITORE RIGENERATO */
+.progetto-contenuto {
+    display: flex;
+    align-items: center;  /* Tiene allineati verticalmente il testo e l'immagine */
+    gap: 40px;            /* Spazio in mezzo tra il testo e lo screenshot */
+}
+/* IL TESTO A SINISTRA PRENDE LO SPAZIO LIBERO */
+.progetto-testo {
+    flex: 1;
+    font-size: 14pt;              
+}
+
+/* L'IMMAGINE A DESTRA OCCUPA IL 45% */
+#progetto-principale img {
+    max-width: 45%;       
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    border: 3px solid #DB862B;
+    transform: translateY(-25px);
+}
+
+/* STILE DEL BOTTONE (Sotto il testo) */
+#progetto-principale a {
+    display: inline-block;
+    background-color: #DB862B;
+    color: #ffffff;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 25px; 
+    margin-top: 50px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-decoration: none;
+    transition: 0.3s;
+}
+#progetto-principale a:hover {
+    background-color: #ffffff;
+    color: #DB862B;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #888888;
+    font-size: 10pt;
+}
+
+
+
+.titolo-pagina {
+    margin-top: 90px;
+    font-size: 26pt;
+    color: #DB862B;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 800;
+    margin-bottom: 90px;
+}
+/* Il contenitore principale che allinea i 3 blocchi del tuo disegno */
+.sezione-progetti {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Spazio laterale tra le colonne */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* La colonna verticale (Rettangolo + Bottone sotto) */
+.colonna-progetto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra il bottone sotto rispetto al rettangolo */
+    gap: 25px; /* Spazio esatto del disegno tra il rettangolo e il bottone */
+    opacity: 0; /* Partono invisibili e l'animazione le rende visibili */
+    animation: apparizioneFluida 0.5s ease-out forwards;
+}
+.colonna-progetto:nth-child(1) { animation-delay: 0.2s; }
+.colonna-progetto:nth-child(2) { animation-delay: 0.4s; }
+.colonna-progetto:nth-child(3) { animation-delay: 0.6s; }
+
+/* Il rettangolo grigio scuro con bordo arancione */
+.scheda-grigia {
+    background-color: #444444; /* Colore grigio come nel tuo disegno */
+    border: 1px solid #DB862B; /* Bordo arancione esterno */
+    border-radius: 60px; /* Molto arrotondato come da disegno */
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Mantiene il testo allineato a sinistra */
+}
+
+/* Il contenitore interno dell'immagine (Bordo arancione interno) */
+.box-immagine-progetto {
+    width: 75%;
+    margin: 0 auto 25px auto;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #DB862B; /* Bordo arancione dell'immagine */
+    border-radius: 45px; /* Angoli arrotondati interni */
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.box-immagine-progetto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Il testo "Testo..." a sinistra sotto l'immagine */
+.titolo-progetto {
+    width: 100%;
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin: 0;
+    padding-left: 10px;
+    text-align: center;
+}
+.testo-progetto {
+    padding-top: 10px;
+    color: #ffffff;
+    font-size: 12pt;
+    margin: 0;
+    padding-left: 10px;
+    text-align: left;
+}
+
+/* Il bottone ovale staccato sotto */
+.bottone-esterno {
+    position: relative;
+    flex-direction: row-reverse;
+    background-color: #444444;
+    color: #ffffff;
+    border: 1px solid #DB862B; /* Bordo arancione del bottone */
+    padding: 15px 100px;
+    border-radius: 50px; /* Forma a pillola perfetta */
+    text-decoration: none;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    transition: background-color 0.2s;
+}
+.icona-bottone {
+    position: absolute;        /* Sgancia l'icona dal flusso del testo */
+    top: 50%;                  /* La sposta a metà altezza del bottone */
+    transform: translateY(-50%); /* Centratura verticale matematica dell'icona */
+    right: 20px;               /* La blocca vicino al bordo destro del bottone */
+    
+    width: 30px;               /* Le tue dimensioni dell'icona */
+    height: 30px;
+}
+
+.bottone-esterno:hover {
+    background-color: #DB862B; /* Diventa arancione quando ci passi sopra */
+    box-shadow: #DB862B 0px 4px 10px; /* Aggiunge un bagliore arancione */  
+}
+
+.icona-bottone {
+    fill: #ffffff;
+}
+/* --- SEZIONE CONTATTI --- */
+.contatti-section {
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contatti-container {
+    max-width: 700px; /* Più stretto per renderlo elegante e leggibile */
+    width: 90%;
+    background-color: #232323; /* Lo stesso grigio dei tuoi box */
+    padding: 40px;
+    border-radius: 20px; /* Bordi arrotondati come i progetti */
+    border: 1px solid #333;
+    box-shadow: 0 6px 12px rgba(219, 134, 43, 0.5); /* Bagliore arancione per richiamare il tema */
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.contatti-container h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.contatti-container h2 span {
+    color: #DB862B; /* Il tuo arancione */
+}
+
+.sottotitolo {
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Gruppi di Input */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Stile comune per input, select e textarea */
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    background-color: #1a1a1a; /* Sfondo input più scuro del box */
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 12px 15px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    appearance: none;   
+}
+
+.input-group input:focus, 
+.input-group select:focus, 
+.input-group textarea:focus {
+    border-color: #DB862B; /* Diventa arancione quando clicchi */
+    /* Crea un alone arancione sfumato attorno al campo cliccato */
+    box-shadow: 0 0 8px rgba(219, 134, 43, 0.3);
+    transform: scale(1.01); /* Espande il campo di un millimetro per farlo "andare incontro" all'utente */
+}
+
+/* Rende la textarea ridimensionabile solo in verticale */
+.input-group textarea {
+    resize: vertical;
+}
+
+/* Bottone Invia */
+.bottone-invia {
+    background-color: #DB862B;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.bottone-invia:hover {
+    background-color: #b86e22;
+    transform: translateY(-2px);
+}
+/* Questa classe viene attivata quando il bottone è disabilitato (cioè durante l'invio) */
+.bottone-invia:disabled {
+    animation: pulsanteCaricamento 1.5s infinite ease-in-out;
+    cursor: not-allowed;
+    background-color: #b86e22; /* Diventa un arancione un po' più scuro */
+}
+
+/* Box dei risultati dell'invio */
+.form-result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: none; /* Nascosto all'inizio */
+}
+.form-result.success {
+    display: block;
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+.form-result.error {
+    display: block;
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+/* Stile base del bottone hamburger per PC (Nascosto) */
+.hamburger-btn {
+    display: none; /* Questo lo fa sparire completamente su schermi grandi */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+/* Le tre linee dentro il bottone */
+.hamburger-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: white; /* Puoi metterlo anche arancione #DB862B se preferisci! */
+    border-radius: 3px;
+    transition: all 0.3s ease; /* Servirà per le future animazioni */
+}
+/* ==========================================================================
+   REGOLE PER MOBILE (Schermi inferiori a 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. Il Body deve essere tassativamente resettato */
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        width: 100% !important;
+    }
+ /* 2. L'header ora si adatta dinamicamente senza deformarsi */
+    header {
+        display: flex !important; 
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        position: sticky !important;
+        top: 10px !important;
+        border-radius: 15px !important; 
+        box-sizing: border-box !important;
+        width: 92% !important; 
+        max-width: 500px !important; 
+        margin: 0 auto 30px auto !important; 
+        padding: 10px 15px !important; 
+        z-index: 1001 !important; 
+    }
+
+    #video-sfondo {
+        width: 100% !important;
+        height: 100cqh !important; 
+        min-height: -webkit-fill-available !important; 
+        will-change: transform; 
+    }
+
+    /* 3. Evitiamo che il logo o il testo blocchino il ridimensionamento */
+    .logo-container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        width: auto !important;
+        max-width: 70% !important; 
+    }
+
+    .site-logo {
+        height: 35px !important; 
+        width: auto !important;
+        margin-right: 8px !important;
+        flex-shrink: 0 !important; 
+    }
+    
+    .site-title {
+        font-size: 14pt !important; 
+        white-space: nowrap !important; 
+    }
+
+    /* --- IL CONTENITORE DEL MENÙ LATERALE --- */
+    header nav {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important; /* Ora si sposta solo il pannello dei link! */
+        width: 250px !important;  
+        height: 100vh !important; 
+        background-color: #232323 !important; 
+        border-left: 2px solid #DB862B !important; 
+        display: flex !important; 
+        flex-direction: column !important;
+        padding-top: 100px !important; 
+        transition: right 0.3s ease-in-out !important; 
+        z-index: 999 !important; 
+    }
+
+    /* Quando il JS aggiunge .attivo, il menù entra visibilmente */
+    header nav.attivo {
+        right: 0 !important; 
+    }
+
+    /* Gestione della lista interna */
+    header nav ul {
+        display: flex !important;
+        flex-direction: column !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 15px !important;
+    }
+
+    header nav ul li {
+        width: 100% !important;
+    }
+
+    header nav a {
+        display: block !important;
+        font-size: 16pt !important;
+        padding: 12px 30px !important;
+        text-decoration: none !important;
+        color: #ffffff !important;
+        text-align: left !important;
+    }
+
+    /* Impedisce lo scorrimento orizzontale */
+    body {
+        overflow-x: hidden !important;
+    }
+    .pagina-corrente {
+    color: #DB862B !important; /* Il tuo arancione di classe */
+    font-weight: bold !important; /* Opzionale: lo rende anche in grassetto per farlo risaltare di più */
+}
+
+    /* --- STRUTTURA BOTTONE ORA CORRETTA --- */
+    .hamburger-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 30px !important;
+        height: 20px !important; 
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        z-index: 1002 !important; /* Rimane SEMPRE sopra al pannello ed è cliccabile */
+    }
+
+    .hamburger-btn span {
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #ffffff !important;
+        border-radius: 5px !important;
+        transition: all 0.3s ease !important;
+        transform-origin: left center !important; 
+    }  
+
+    /* --- LA X PERFETTA --- */
+    .hamburger-btn.attivo span:nth-child(1) {
+        transform: translate(4px, -1px) rotate(45deg) !important;
+        background-color: #DB862B !important; 
+    }
+
+    .hamburger-btn.attivo span:nth-child(2) {
+        opacity: 0 !important; 
+        transform: translateX(-10px) !important;
+    }
+
+    .hamburger-btn.attivo span:nth-child(3) {
+        transform: translate(4px, 2px) rotate(-45deg) !important;
+        background-color: #DB862B !important;
+    }
+    /* --- HERO SECTION MOBILE --- */
+    .hero {
+        padding: 40px 0 !important; /* Riduciamo lo spazio sopra e sotto su mobile */
+    }
+
+    .hero-container {
+        flex-direction: column !important; /* Incolonna il testo e poi l'immagine sotto */
+        text-align: center !important; /* Centra tutti i testi della hero */
+        gap: 30px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .hero-text {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centra il paragrafo se ha un max-width */
+    }
+
+    .hero-text h1 {
+        font-size: 2.3rem !important; /* Titolo scalato, perfetto per schermi stretti */
+        margin-bottom: 15px !important;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem !important; /* Didascalia leggermente più leggibile su telefono */
+        max-width: 100% !important; /* Permette al testo di usare tutto lo spazio del telefono */
+        padding: 0 10px !important; /* Evita che il testo tocchi i bordi dello schermo */
+    }
+
+    .hero-image {
+        width: 100% !important;
+    }
+
+    .hero-image img {
+        max-width: 280px !important; /* Ridimensiona la skin del creeper per farla stare nello schermo */
+        padding-left: 0 !important; /* FONDAMENTALE: Rimuove i 100px del PC che decentravano la skin */
+        filter: drop-shadow(0 0 20px rgba(219, 134, 43, 0.3)) !important; /* Manteniamo l'ombra figa */
+    }
+    /* --- COLONNE BIO E SKILLS MOBILE --- */
+    .colonne-container {
+        flex-direction: column !important; /* Incolonna Bio e poi Skills sotto */
+        gap: 25px !important; /* Spazio verticale tra i due box */
+        padding: 0 15px !important; /* Evita che i box tocchino i bordi del telefono */
+        box-sizing: border-box !important;
+    }
+
+    #bio, #skills {
+        width: 100% !important; /* Forza entrambi i box a prendere tutta la larghezza disponibile */
+        flex: none !important; /* Disattiva i comportamenti flex del PC */
+        flex-shrink: 1 !important; /* Permette al box delle skills di adattarsi allo schermo del telefono */
+        box-sizing: border-box !important; /* Include il padding nel calcolo della larghezza */
+        padding: 25px 20px !important; /* Riduciamo leggermente il padding per dare più spazio al testo */
+    }
+    
+    /* Ottimizzazione dei testi nei box per schermi piccoli */
+    #bio {
+        font-size: 12pt !important; /* Un pelo più piccolo per non creare papiri infiniti sul telefono */
+    }
+
+    #skills {
+        font-size: 12pt !important;
+    }
+    /* --- SEZIONE PASSIONI MOBILE --- */
+    .sezione-passioni {
+        margin-top: 70px !important;    /* Riduciamo lo stacco esagerato dal blocco sopra */
+        margin-bottom: 70px !important; 
+    }
+
+    .sezione-passioni h2 {
+        font-size: 1.6rem !important;    /* Titolo proporzionato per mobile */
+        margin-bottom: 20px !important;
+    }
+
+    .passioni-container {
+        gap: 10px !important;            /* Avviciniamo leggermente le pillole tra loro */
+        padding: 10px 15px !important;   /* Crea un cuscinetto ai lati per non farle attaccare allo schermo */
+        margin-bottom: 40px !important;  /* Ridotto lo stacco dal blocco HyperMC sotto */
+    }
+
+    .pillola {
+        padding: 12px 18px !important;   /* Riduce la dimensione ma mantiene un'ottima area di touch */
+        font-size: 10pt !important;      /* Testo leggermente più compatto ed elegante */
+    }
+    /* --- SEZIONE CONTATTAMI MOBILE --- */
+    .contattami-home {
+        width: 92% !important;        /* Segue la stessa larghezza armoniosa degli altri box */
+        max-width: 500px !important;
+        margin: 0 auto 40px auto !important; /* Lo centra nella pagina e riduce il margine sotto */
+        padding: 30px 20px !important; /* Cuscinetto interno per il telefono */
+        box-sizing: border-box !important;
+        text-align: center !important; /* Centra il testo complessivo */
+    }
+
+    .riga-consigli {
+        flex-direction: column !important; /* Incolonna Titolo -> Testo -> Bottone */
+        gap: 20px !important;
+    }
+
+    /* Forza la sparizione di QUALSIASI tag <br> dentro la sezione contattami */
+    .contattami-home br, 
+    .riga-consigli br {
+        display: none !important;
+    }
+
+    /* Assicuriamoci che il titolo h2 non abbia vincoli di larghezza */
+    .riga-consigli h2 {
+        padding-left: 0px !important; /* Rimuove tassativamente i 20px del PC */
+        font-size: 1.4rem !important;
+        text-align: center !important; /* Forza la centratura matematica del testo */
+        width: 100% !important;
+        margin-left: 0 !important;    /* Sicurezza contro eventuali altri margini ereditati */
+        margin-right: 0 !important;
+    }
+
+    .testo-destra {
+        flex-direction: column !important; /* Incolonna il paragrafo e il bottone */
+        gap: 25px !important;
+        width: 100% !important;
+    }
+
+    .testo-destra p {
+        font-size: 11pt !important;
+        color: #cccccc;
+        line-height: 1.5;
+    }
+
+    .bottone-consigli {
+        margin-top: 0 !important;     /* Resetta i margini del PC */
+        width: 80% !important;        /* Diventa un bel bottone grande e centrale */
+        max-width: 250px !important;
+        padding: 14px 20px !important; /* Più comodo da premere con il pollice */
+    }
+    /* --- SEZIONE HYPERMC MOBILE --- */
+    #progetto-principale {
+        width: 92% !important;        /* Stessa larghezza coerente con gli altri box */
+        max-width: 500px !important;
+        margin: 0 auto 40px auto !important; /* Centrato con margine sotto */
+        padding: 30px 20px !important; /* Padding interno ottimizzato */
+        box-sizing: border-box !important;
+        text-align: center !important; /* Centra testi e bottoni per il mobile */
+    }
+
+    .progetto-contenuto {
+        flex-direction: column-reverse !important; /* TRUCCO: Incolonna mettendo PRIMA il testo e SOTTO l'immagine */
+        gap: 25px !important;
+    }
+
+    .progetto-testo {
+        width: 100% !important;
+        font-size: 11pt !important; /* Testo leggibile ma proporzionato */
+    }
+
+    #progetto-principale img {
+        max-width: 90% !important;  /* Ora l'immagine prende quasi tutta la larghezza del box */
+        height: auto !important;
+        transform: translateY(0) !important; /* ANNULLA lo spostamento verso l'alto del PC */
+        margin: 10px auto 0 auto !important; /* La centra perfettamente */
+    }
+
+    #progetto-principale a {
+        margin-top: 25px !important; /* Ridotto il super-stacco da 50px del PC */
+        width: 80% !important;        /* Bottone bello largo, comodo da cliccare */
+        max-width: 250px !important;
+        padding: 14px 20px !important;
+        box-sizing: border-box !important;
+    }
+    /* --- PAGINA I MIEI PROGETTI MOBILE --- */
+    .titolo-pagina {
+        padding-top: 30px !important;      /* Riduciamo lo spazio sopra il titolo */
+        margin-top: 70px !important;    /* Riduciamo lo spazio gigante in alto */
+        margin-bottom: 70px !important;
+        font-size: 1.8rem !important;   /* Regoliamo il titolo principale */
+    }
+
+    .sezione-progetti {
+        flex-direction: column !important; /* Incolonna le schede una sotto l'altra */
+        gap: 40px !important;            /* Spazio verticale tra un progetto e l'altro */
+        padding: 0 15px !important;      /* Impedisce alle schede di toccare lo schermo */
+    }
+
+    .colonna-progetto {
+        width: 100% !important;
+        max-width: 420px !important;     /* Evita che le schede diventino troppo larghe sui telefoni grandi */
+        margin: 0 auto !important;       /* Mantiene ogni blocco perfettamente centrato */
+        gap: 15px !important;            /* Avvicina leggermente il bottone alla sua scheda */
+    }
+
+    .scheda-grigia {
+        border-radius: 40px !important;  /* Smussatura leggermente ridotta per fare spazio al testo */
+        padding: 25px 20px !important;   /* Ottimizziamo lo spazio interno */
+    }
+
+    .box-immagine-progetto {
+        width: 60% !important;           /* Stringiamo l'immagine per non farla diventare un testone enorme */
+        max-width: 200px !important;
+        border-radius: 30px !important;  /* Arrotondamento proporzionato */
+        margin-bottom: 15px !important;
+    }
+
+    .testo-progetto {
+        font-size: 11pt !important;      /* Testo leggermente più compatto per facilitare la lettura */
+        padding-left: 5px !important;
+    }
+
+    .bottone-esterno {
+        padding: 14px 0 !important;      /* Mantiene il padding verticale comodo */
+        width: 100% !important;          /* FORZA il bottone a essere largo ESATTAMENTE come la card */
+        max-width: 100% !important;      /* Rimuove qualsiasi blocco, costringendolo a seguire la colonna */
+        text-align: center !important;
+        box-sizing: border-box !important; /* Fondamentale per non farlo sbordare con i margini */
+        margin-bottom: 40px !important;
+    }
+    
+    .icona-bottone {
+        right: 15px !important;          /* Avvicina l'icona di Modrinth al bordo destro nel display piccolo */
+        width: 24px !important;          /* Icona un pelo più microscopica ed elegante */
+        height: 24px !important;
+    }
+    /* --- PAGINA CONTATTI MOBILE --- */
+    .contatti-section {
+        padding: 40px 0 !important; /* Riduciamo lo spazio sopra e sotto il form */
+    }
+
+    .contatti-container {
+        padding: 25px 20px !important; /* Riduciamo il padding interno per dare aria agli input */
+        width: 92% !important; /* Lo allarghiamo leggermente per sfruttare lo schermo del telefono */
+    }
+
+    .contatti-container h2 {
+        font-size: 1.8rem !important; /* Titolo più proporzionato, evita di andare a capo male */
+        margin-bottom: 5px !important;
+    }
+
+    .sottotitolo {
+        font-size: 0.95rem !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* Ottimizzazione dei campi di input per il touch */
+    .input-group input, 
+    .input-group select, 
+    .input-group textarea {
+        padding: 14px 12px !important; /* Input leggermente più alti, molto più facili da tappare col pollice */
+        font-size: 16px !important; /* TRUCCO REALE: iOS non fa lo zoom fastidioso solo se il font è almeno 16px/1rem! */
+        appearance: none;
+    }
+
+    /* Disattiviamo lo scale su mobile per evitare micro-scatti dello schermo */
+    .input-group input:focus, 
+    .input-group select:focus, 
+    .input-group textarea:focus {
+        transform: none !important; 
+        box-shadow: 0 0 10px rgba(219, 134, 43, 0.4) !important; /* Accentuiamo leggermente il bagliore */
+    }
+
+    .bottone-invia {
+        padding: 16px !important; /* Bottone più cicciotto, perfetto per il touch */
+        font-size: 1.1rem !important;
+    }
+}
+/* Animazione 1: Da grande a dimensione normale */
+@keyframes rimpicciolisci {
+    0% {
+        transform: scale(1.2); /* Parte il 20% più grande */
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);   /* Torna alla dimensione normale */
+        opacity: 1;
+    }
+}
+/* Animazione 2: Apparizione fluida dal basso verso l'alto */
+@keyframes apparizioneFluida {
+    0% {
+        transform: translateY(30px); /* Parte 30px più in basso */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);    /* Torna alla posizione corretta */
+        opacity: 1;
+    }
+}
+@keyframes fadeInSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px); /* Parte un po' più a sinistra */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Arriva alla posizione normale */
+    }
+}
+
+@keyframes fadeInSlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(30px); /* Parte un po' più a destra */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Parte leggermente più in basso */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Arriva alla posizione corretta */
+    }
+}
+@keyframes pulsanteCaricamento {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}

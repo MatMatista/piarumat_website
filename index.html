@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piarumat | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <video autoplay loop muted playsinline id="video-sfondo">
+        <source src="background.mp4" type="video/mp4">
+        Il tuo browser non supporta i video come sfondo.
+    </video>
+    <header>
+    <div class="logo-container">
+        <img src="logo.png" alt="Piarumat Logo" class="site-logo">
+        <span class="site-title">Piarumat</span>
+    </div>
+    
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html" class="pagina-corrente">Home</a></li>
+            <li><a href="progetti.html">Progetti</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <button class="hamburger-btn" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+<div class="sito-centrato">
+    <main>
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>Ciao, io sono <span>Piarumat</span></h1>
+            <p>
+                Benvenuti nel mio spazio digitale. In questo sito potrete
+                scoprire di più su di me, sulle mie abilità e sulle mie passioni.
+                Potrete dare un occhiata ai miei progetti o contattarmi per
+                qualsiasi domanda o richiesta.
+            </p>
+        </div>
+
+        <div class="hero-image">
+            <img src="piarumat-skin.png" alt="Skin di Piarumat">
+        </div>
+    </div>
+</section>
+        <div class="colonne-container">
+            <section id="bio">
+                <h3>Breve biografia</h3>
+                <p>Io sono Piarumat, giovane ragazzo di 14 anni amante dell'informatica e del digitale. Ho coltivato questa passione negli anni fino ad oggi, dedicandomi a creare contenuti digitali unici e coinvolgenti. Dalla creazione di plugin per Minecraft fino alla progettazione di un intero server, porto la mia passione a crescere insieme a chi mi sta intorno.</p>
+            </section>
+
+            <section id="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Creazione di plugin Minecraft</li>
+                    <li>Creazione di Server Minecraft</li>
+                    <li>Creazione di Server Discord </li>
+                    <li>HTML5 e CSS3</li>
+                </ul>
+            </section>  
+        </div>
+
+    <section class="sezione-passioni">
+        <h2>Le mie passioni</h2>
+
+        <div class="passioni-container">
+            <span class="pillola"><i class="fa-solid fa-code"></i> Programmazione</span>
+            <span class="pillola"><i class="fa-solid fa-gamepad"></i> Gaming</span>
+            <span class="pillola"><i class="fa-solid fa-gauge-high"></i> SimRacing</span>
+            <span class="pillola"><i class="fa-solid fa-flag-checkered"></i> Motorsport</span>
+            <span class="pillola"><i class="fa-solid fa-cubes"></i> Minecraft Sviluppo</span>
+        </div>
+    </section>
+    <section class="contattami-home">
+        <div class="riga-consigli">
+            <h3 style="padding-left: 20px;">Bisogno <br> di<br> consigli?</h3>
+            <div class="testo-destra">
+            <p width="96%">Se hai bisogno di consigli per qualsiasi cosa, che siano domande sul mio lavoro o richieste particolari per plugin di Minecraft, non esitare a contattarmi, risponderò il prima possibile per esserti d'aiuto.</p>
+            <a href="contatti.html" class="bottone-consigli">Contattami</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="progetto-principale">
+    <h2>Il mio più grande progetto: HyperMC</h2>
+    
+    <div class="progetto-contenuto">
+        
+        <div class="progetto-testo">
+            <p>Questo è il progetto più grande a cui sto lavorando attualmente. Si tratta di un server Minecraft personalizzato. L'obbiettivo è chiaro, realizzare un server unico e coinvolgente e scalare le classifiche fino al top in Italia. Il progetto è in corso di sviluppo e siamo impegnati a dare il meglio possibile, ma è comunque possibile visitare il sito del server.</p>
+            
+            <p>
+                <a href="https://www.hyper-mc.it" target="_blank">Visita il sito del Server</a>
+            </p>
+        </div>
+        <img src="screenshot_hypermc.png" alt="Screenshot del mio server Minecraft">
+    </div>
+</section>
+
+    </main>
+</div>
+    <script src="hamburger.js"></script>
+</body>
+<footer>
+        <p>&copy; Piarumat 2026 - Tutti i diritti sono riservati</p>
+</footer>
+</html>

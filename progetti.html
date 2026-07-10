@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piarumat | Progetti</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <video autoplay loop muted playsinline id="video-sfondo">
+        <source src="background.mp4" type="video/mp4">
+        Il tuo browser non supporta i video come sfondo.
+    </video>
+    <header>
+    <div class="logo-container">
+        <img src="logo.png" alt="Piarumat Logo" class="site-logo">
+        <span class="site-title">Piarumat</span>
+    </div>
+    
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="progetti.html" class="pagina-corrente">Progetti</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <button class="hamburger-btn" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+<main class="sito-centrato">
+    <h1 class="titolo-pagina">I miei progetti</h1>
+
+    <div class="sezione-progetti">
+
+        <div class="colonna-progetto">
+            <div class="scheda-grigia">
+                <div class="box-immagine-progetto">
+                    <img src="tuo-plugin1.png" alt="Immagine">
+                </div>
+                <p class="titolo-progetto">1.8-StylePvP</p>
+                <p class="testo-progetto">Questo plugin aggiunge il sistema di PvP in stile 1.8 nei mondi che scegli tu all'interno del tuo server. Con un config semplicissmo da personalizzare offre la possibilità di creare modalità dai combattimenti spettacolari.</p>
+            </div>
+            <a href="https://modrinth.com/plugin/1.8-stylepvp" target="_blank" rel="noopener noreferrer" class="bottone-esterno">
+                <img src="modrinth-logo.png" alt="Modrinth" class="icona-bottone">
+                 Scarica su Modrinth
+            </a>
+        </div>
+
+        <div class="colonna-progetto">
+            <div class="scheda-grigia">
+                <div class="box-immagine-progetto">
+                    <img src="tuo-plugin2.png" alt="Immagine">
+                </div>
+                <p class="titolo-progetto">PerfectLB</p>
+                <p class="testo-progetto">Questo plugin permette di creare Leaderboards 100% personalizzabili per classifiche nel tuo server minecraft. Il plugin include top 10 per kills, deaths playtime e altro, per tener conto sempre di chi comanda nel server.</p>
+            </div>
+            <a href="https://modrinth.com/plugin/perfect-leaderboards" target="_blank" rel="noopener noreferrer" class="bottone-esterno">
+                <img src="modrinth-logo.png" alt="Modrinth" class="icona-bottone">
+                 Scarica su Modrinth
+            </a>
+        </div>
+
+        <div class="colonna-progetto">
+            <div class="scheda-grigia">
+                <div class="box-immagine-progetto">
+                    <img src="server-logo.png" alt="Immagine">
+                </div>
+                <p class="titolo-progetto">HyperMC</p>
+                <p class="testo-progetto">HyperMC è il progetto più grande a cui ho lavorato finora, un server minecraft dalle modalità uniche e coinvolgenti. Io e il mio team abbiamo dedicato cuore e tempo per realizzare questo progetto per voi giocatori.</p>
+            </div>
+            <a class="bottone-esterno" id="bottone-copia">
+                Copia IP del server
+            </a>
+        </div>
+    </div>
+        <script src="script.js"></script>
+        <script src="hamburger.js"></script>
+    </body>
+    <footer>
+        <p>&copy; Piarumat 2026 - Tutti i diritti sono riservati</p>
+    </footer>
+</main>
