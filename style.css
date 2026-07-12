@@ -143,8 +143,6 @@ header nav ul li a:hover {
     margin-bottom: 20px;
     line-height: 1.1;
     opacity: 0; /* Nasconde l'elemento all'inizio */
-    animation: fadeInSlideRight 1s ease-out forwards; /* Nome animazione, durata, tipo di scorrimento, mantiene la posizione finale */
-    animation-delay: 0.2s; /* Ritardo per far apparire dopo il titolo */
 }
 
 .hero-text h1 span {
@@ -157,8 +155,6 @@ header nav ul li a:hover {
     line-height: 1.6;
     max-width: 600px;
     opacity: 0;
-    animation: fadeInSlideRight 1s ease-out forwards;
-    animation-delay: 0.4s; /* Ritardo maggiore */
 }
 
 .hero-image {
@@ -166,8 +162,6 @@ header nav ul li a:hover {
     display: flex;
     justify-content: center;
     opacity: 0;
-    animation: fadeInSlideLeft 1s ease-out forwards;
-    animation-delay: 0.6s; /* La skin appare per ultima per catturare l'attenzione */
 }
 
 .hero-image img {
@@ -275,17 +269,8 @@ h3, h2 {
     align-items: center;
     gap: 8px;                  /* Spazio tra l'icona e il testo */
     transition: 0.3s;
-    opacity: 0; /* Partono invisibili e l'animazione le rende visibili */
-    animation: apparizioneFluida 0.5s ease-out forwards;
+
 }
-
-/* Ritardi (Delay) per farle apparire in fila indiana */
-.pillola:nth-child(1) { animation-delay: 0.2s; }
-.pillola:nth-child(2) { animation-delay: 0.4s; }
-.pillola:nth-child(3) { animation-delay: 0.6s; }
-.pillola:nth-child(4) { animation-delay: 0.8s; }
-.pillola:nth-child(5) { animation-delay: 1.0s; }
-
 /* Effetto quando passi il mouse sopra una pillola */
 .pillola:hover {
     background-color: #DB862B; /* Diventa arancione */
@@ -306,8 +291,6 @@ h3, h2 {
     border-width: 1px;
     border-style: solid;
     opacity: 0;
-    animation: apparizioneFluida 1s ease-out forwards;
-    animation-delay: 1.2s; /* Parte dopo che le pillole hanno finito */
 }
 .riga-consigli {
     display: flex;
@@ -360,9 +343,13 @@ h3, h2 {
     border-color: #DB862B;
     border-width: 1px;
     border-style: solid;
-    opacity: 0;
-    animation: apparizioneFluida 1s ease-out forwards;
-    animation-delay: 1.2s; /* Parte dopo che le pillole hanno finito */
+    content-visibility: auto; /* Aiuta il browser a calcolare il blocco */
+    overflow: visible !important; /* Impedisce che l'animazione laterale nasconda l'elemento */ 
+}
+#progetto-principale [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: transform 0.8s ease, opacity 0.8s ease !important;
 }
 
 /* CONTENITORE RIGENERATO */
@@ -442,12 +429,7 @@ footer {
     align-items: center; /* Centra il bottone sotto rispetto al rettangolo */
     gap: 25px; /* Spazio esatto del disegno tra il rettangolo e il bottone */
     opacity: 0; /* Partono invisibili e l'animazione le rende visibili */
-    animation: apparizioneFluida 0.5s ease-out forwards;
 }
-.colonna-progetto:nth-child(1) { animation-delay: 0.2s; }
-.colonna-progetto:nth-child(2) { animation-delay: 0.4s; }
-.colonna-progetto:nth-child(3) { animation-delay: 0.6s; }
-
 /* Il rettangolo grigio scuro con bordo arancione */
 .scheda-grigia {
     background-color: #444444; /* Colore grigio come nel tuo disegno */
@@ -548,8 +530,6 @@ footer {
     border: 1px solid #333;
     box-shadow: 0 6px 12px rgba(219, 134, 43, 0.5); /* Bagliore arancione per richiamare il tema */
     opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.2s;
 }
 
 .contatti-container h2 {
@@ -558,7 +538,6 @@ footer {
     margin-bottom: 10px;
     text-align: center;
     opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .contatti-container h2 span {
@@ -1101,48 +1080,6 @@ footer {
     100% {
         transform: scale(1);   /* Torna alla dimensione normale */
         opacity: 1;
-    }
-}
-/* Animazione 2: Apparizione fluida dal basso verso l'alto */
-@keyframes apparizioneFluida {
-    0% {
-        transform: translateY(30px); /* Parte 30px più in basso */
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);    /* Torna alla posizione corretta */
-        opacity: 1;
-    }
-}
-@keyframes fadeInSlideRight {
-    from {
-        opacity: 0;
-        transform: translateX(-30px); /* Parte un po' più a sinistra */
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0); /* Arriva alla posizione normale */
-    }
-}
-
-@keyframes fadeInSlideLeft {
-    from {
-        opacity: 0;
-        transform: translateX(30px); /* Parte un po' più a destra */
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* Parte leggermente più in basso */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* Arriva alla posizione corretta */
     }
 }
 @keyframes pulsanteCaricamento {

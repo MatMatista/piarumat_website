@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
@@ -39,9 +40,9 @@
 <main class="sito-centrato">
     <h1 class="titolo-pagina">I miei progetti</h1>
 
-    <div class="sezione-progetti">
+    <div class="sezione-progetti" data-aos="fade-up">
 
-        <div class="colonna-progetto">
+        <div class="colonna-progetto" data-aos="fade-up" data-aos-delay="100">
             <div class="scheda-grigia">
                 <div class="box-immagine-progetto">
                     <img src="tuo-plugin1.png" alt="Immagine">
@@ -55,7 +56,7 @@
             </a>
         </div>
 
-        <div class="colonna-progetto">
+        <div class="colonna-progetto" data-aos="fade-up" data-aos-delay="300">
             <div class="scheda-grigia">
                 <div class="box-immagine-progetto">
                     <img src="tuo-plugin2.png" alt="Immagine">
@@ -69,7 +70,7 @@
             </a>
         </div>
 
-        <div class="colonna-progetto">
+        <div class="colonna-progetto" data-aos="fade-up" data-aos-delay="500">
             <div class="scheda-grigia">
                 <div class="box-immagine-progetto">
                     <img src="server-logo.png" alt="Immagine">
@@ -84,6 +85,14 @@
     </div>
         <script src="script.js"></script>
         <script src="hamburger.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Durata standard dell'animazione (1 secondo)
+    once: true,     // L'animazione avviene solo la prima volta che si scende
+    offset: 120     // Fa partire l'animazione 120px prima che l'elemento appaia
+  });
+</script>
     </body>
     <footer>
         <p>&copy; Piarumat 2026 - Tutti i diritti sono riservati</p>

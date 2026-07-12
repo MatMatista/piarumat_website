@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
@@ -37,10 +38,9 @@
     </button>
 </header>
     <section class="contatti-section">
-        <div class="contatti-container">
-            <h2>Mettiti in <span>contatto</span></h2>
-            <p class="sottotitolo">Hai una domanda o vuoi segnalare un bug in un mio plugin? Compila il modulo qui sotto.</p>
-
+        <div class="contatti-container" data-aos="fade-up">
+            <h2 data-aos="fade-up" data-aos-delay="100">Mettiti in <span>contatto</span></h2>
+            <p class="sottotitolo"data-aos="fade-up" data-aos-delay="300">Hai una domanda o vuoi segnalare un bug in un mio plugin? Compila il modulo qui sotto.</p>
             <form id="contact-form">
                 
                 <input type="hidden" name="access_key" value="6b09fd2a-68c2-4d21-bdc4-8a108caff686">
@@ -85,6 +85,14 @@
 
     <script src="contatti.js"></script>
     <script src="hamburger.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Durata standard dell'animazione (1 secondo)
+    once: true,     // L'animazione avviene solo la prima volta che si scende
+    offset: 120     // Fa partire l'animazione 120px prima che l'elemento appaia
+  });
+</script>
 </body>
 <footer>
         <p>&copy; Piarumat 2026 - Tutti i diritti sono riservati</p>
