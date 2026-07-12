@@ -734,7 +734,7 @@ footer {
 
     /* Quando il JS aggiunge .attivo, il menù entra visibilmente */
     header nav.attivo {
-        right: 0 !important; 
+        right: 0 !important;
     }
 
     /* Gestione della lista interna */
@@ -763,12 +763,13 @@ footer {
     }
 
     /* Impedisce lo scorrimento orizzontale */
-    body {
+    html, body {
         overflow-x: hidden !important;
+        width: 100% !important;
     }
     .pagina-corrente {
-    color: #DB862B !important; /* Il tuo arancione di classe */
-    font-weight: bold !important; /* Opzionale: lo rende anche in grassetto per farlo risaltare di più */
+        color: #DB862B !important; /* Il tuo arancione di classe */
+        font-weight: bold !important; /* Opzionale: lo rende anche in grassetto per farlo risaltare di più */
     }   
 
     /* --- STRUTTURA BOTTONE ORA CORRETTA --- */
