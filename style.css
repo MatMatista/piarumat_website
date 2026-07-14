@@ -989,16 +989,21 @@ footer {
     }
 
     .sezione-progetti {
-        flex-direction: column !important; /* Incolonna le schede una sotto l'altra */
-        gap: 40px !important;            /* Spazio verticale tra un progetto e l'altro */
-        padding: 0 15px !important;      /* Impedisce alle schede di toccare lo schermo */
+        /* Passiamo da 3 colonne a 1 sola colonna */
+        grid-template-columns: 1fr !important;
+        
+        /* Riduciamo leggermente i margini generali della sezione su mobile */
+        margin: 20px auto;
+        gap: 20px; /* Spazio ridotto per gli schermi piccoli */
     }
 
     .colonna-progetto {
-        width: 100% !important;
-        max-width: 420px !important;     /* Evita che le schede diventino troppo larghe sui telefoni grandi */
-        margin: 0 auto !important;       /* Mantiene ogni blocco perfettamente centrato */
-        gap: 15px !important;            /* Avvicina leggermente il bottone alla sua scheda */
+        /* Rimuoviamo il flex che potrebbe dare fastidio */
+        flex: none !important;
+        width: 100%; /* La card prende tutta la larghezza disponibile sullo schermo del telefono */
+        
+        /* Spazio verticale tra un progetto e l'altro su mobile (leggermente ridotto rispetto al desktop) */
+        margin-bottom: 40px !important; 
     }
 
     .scheda-grigia {
