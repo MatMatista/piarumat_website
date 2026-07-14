@@ -413,7 +413,8 @@ footer {
 }
 /* Il contenitore principale che allinea i 3 blocchi del tuo disegno */
 .sezione-progetti {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     gap: 40px; /* Spazio laterale tra le colonne */
     max-width: 1200px;
@@ -429,6 +430,7 @@ footer {
     align-items: center; /* Centra il bottone sotto rispetto al rettangolo */
     gap: 25px; /* Spazio esatto del disegno tra il rettangolo e il bottone */
     opacity: 0; /* Partono invisibili e l'animazione le rende visibili */
+    margin-bottom: 55px !important;
 }
 /* Il rettangolo grigio scuro con bordo arancione */
 .scheda-grigia {
